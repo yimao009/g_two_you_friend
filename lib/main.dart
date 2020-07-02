@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 
+import 'package:two_you_friend/pages/home_page.dart';
+
+/// App 核心入口文件
 void main() => runApp(MyApp());
 
+/// MyApp 核心入口界面
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
@@ -11,53 +15,14 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue, //页面的主题颜色
       ),
-      home: MyHomePage(title: 'Two You'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-  final String title;
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title), // 当前页面Title信息
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'Hello Flutter', //当前页面显示的文本信息
-            ),
-          ],
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Two You'),
+        ),
+        body: Center(
+          child: HomePage(),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
