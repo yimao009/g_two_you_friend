@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:two_you_friend/pages/home_new_page.dart';
 
-import 'package:two_you_friend/pages/home_page.dart';
+//import 'package:two_you_friend/pages/home_page.dart';
 
 //import 'package:two_you_friend/pages/test_stateful_widget.dart';
 /// 返回dart运行环境模式
@@ -28,7 +29,7 @@ class MyApp extends StatelessWidget {
           title: Text('Two You'),
         ),
         body: Center(
-          child: HomePage(),
+          child: HomeNewPage(),
         ),
       ),
     );
