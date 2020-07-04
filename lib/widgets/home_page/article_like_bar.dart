@@ -42,23 +42,41 @@ class _ArticleLikeBarState extends State<ArticleLikeBar> {
   @override
   Widget build(BuildContext context) {
     print('ArticleLikeBar build');
-    final likeNum = Provider.of<LikeNumModel>(context);
+//    final likeNum = Provider.of<LikeNumModel>(context);
 
     return Container(
 //      color: Colors.lightGreen,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          FlatButton(
-            onPressed: ()=> likeNum.changeLikeNum(),
+          Consumer<LikeNumModel>(
+            builder: (context, likeNum, child) {
+              return FlatButton(
+                onPressed: likeNum.changeLikeNum,
+                child: child,
+              );
+            },
             child: Row(
               children: <Widget>[
                 ThumbUpIcon(),
                 Padding(padding: EdgeInsets.only(left: 10),),
-                Text('${likeNum.value}',style: TextStyles.commonStyle())
+                Consumer<LikeNumModel>(
+                  builder: (context, likeNum, _) =>
+                      Text('${likeNum.value}',style: TextStyles.commonStyle()),
+                ),
               ],
             ),
-          )
+          ),
+//          FlatButton(
+//            onPressed: ()=> likeNum.changeLikeNum(),
+//            child: Row(
+//              children: <Widget>[
+//                ThumbUpIcon(),
+//                Padding(padding: EdgeInsets.only(left: 10),),
+//                Text('${likeNum.value}',style: TextStyles.commonStyle())
+//              ],
+//            ),
+//          )
         ],
       ),
     );
