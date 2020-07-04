@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-//import 'package:two_you_friendriend/pages/sub_stateful_widget.dart';
+import 'package:two_you_friend/pages/sub_stateful_widget.dart';
 
 // ignore: public_member_api_docs
 class TestStatefulWidget extends StatefulWidget {
@@ -75,7 +75,7 @@ class _TestStatefulWidgetState extends State<TestStatefulWidget> {
           child: Text('$name $count'), // 使用 Text 组件显示描述字符和当前计算
           onPressed: () => changeName(), // 点击触发修改描述字符 state name
         ),
-//        SubStatefulWidget()
+        SubStatefulWidget()
       ],
     );
   }

@@ -15,7 +15,10 @@ class ArticleSummaryStruct {
   /// 评论数量
   final int commentNum;
 
+  /// 帖子内容
+  final String content;
+
   /// 构造函数
   const ArticleSummaryStruct(this.title, this.summary, this.articleImage,
-      this.likeNum, this.commentNum);
+      this.likeNum, this.commentNum, [this.content]);
 }

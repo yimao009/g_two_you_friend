@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 /// 创建子组件类
 class SubStatefulWidget extends StatefulWidget {
+
   @override
   _SubStatefulWidgetState createState() {
     print('sub create state');

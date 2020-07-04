@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:two_you_friend/styles/text_styles.dart';
 
 /// 帖子标题描述组件
 ///
@@ -19,18 +20,48 @@ class ArticleSummary extends StatelessWidget {
   /// 构造函数
   const ArticleSummary({Key key, this.title, this.summary, this.articleImage})
       : super(key: key);
+  /// 左侧的标题和标题描述组件
+  Widget getLeftInfo() {
+    return Container(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Text(
+            title,
+            style: TextStyles.commonStyle(),
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+          ),
+          Padding(padding: EdgeInsets.only(top: 8),),
+          Text(
+            summary,
+            style: TextStyles.commonStyle(0.8),
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
+          )
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
+    print('ArticleSummary build');
     return Row(
+//      mainAxisAlignment: MainAxisAlignment.spac,
       children: <Widget>[
-        Column(
-          children: <Widget>[Text(title), Text(summary)],
+        Expanded(
+          flex: 6,
+          child: getLeftInfo(),
         ),
-        Image.network(
-          articleImage,
-          width: 80,
-          height: 80,
-          fit: BoxFit.cover,
+        Expanded(
+          flex: 2,
+          child: Image.network(
+            articleImage,
+            width: 80,
+            height: 80,
+            fit: BoxFit.cover,
+          ),
         )
       ],
     );

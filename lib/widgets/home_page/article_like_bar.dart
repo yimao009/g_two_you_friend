@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:two_you_friend/model/like_num_model.dart';
+import 'package:two_you_friend/styles/text_styles.dart';
 
 /// 帖子文章点赞组件
 ///
@@ -38,21 +41,34 @@ class _ArticleLikeBarState extends State<ArticleLikeBar> {
   /// 有状态类返回组件信息
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: <Widget>[
-        Icon(
-          Icons.thumb_up,
-          color: Colors.grey,
-          size: 18,
-        ),
-        Padding(
-          padding: EdgeInsets.only(left: 10),
-        ),
-        FlatButton(
-          child: Text('$likeNum'),
-          onPressed: () => like(),
-        )
-      ],
+    print('ArticleLikeBar build');
+    final likeNum = Provider.of<LikeNumModel>(context);
+
+    return Container(
+//      color: Colors.lightGreen,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          FlatButton(
+            onPressed: ()=> likeNum.changeLikeNum(),
+            child: Row(
+              children: <Widget>[
+                ThumbUpIcon(),
+                Padding(padding: EdgeInsets.only(left: 10),),
+                Text('${likeNum.value}',style: TextStyles.commonStyle())
+              ],
+            ),
+          )
+        ],
+      ),
     );
+  }
+}
+
+class ThumbUpIcon extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    print('ThumbUpIcon First build');
+    return Icon(Icons.thumb_up,  color: Colors.grey, size: 18,);
   }
 }

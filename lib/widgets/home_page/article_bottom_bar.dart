@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:two_you_friend/styles/text_styles.dart';
 
 /// 帖子下面的信息栏
 ///
@@ -27,8 +28,10 @@ class ArticleBottomBar extends StatelessWidget {
           headerImage,
           width: 15,
           height: 15,
+          fit: BoxFit.cover,
         ),
-        Text(nickName),
+        Padding(padding: EdgeInsets.only(left: 10),),
+        Text(nickName, style: TextStyles.commonStyle(),),
       ],
     );
   }
@@ -42,7 +45,8 @@ class ArticleBottomBar extends StatelessWidget {
           color: Colors.grey,
           size: 18,
         ),
-        Text('$commentNum')
+        Padding(padding: EdgeInsets.only(left: 10),),
+        Text('$commentNum', style: TextStyles.commonStyle(),)
       ],
     );
   }
@@ -50,8 +54,22 @@ class ArticleBottomBar extends StatelessWidget {
   /// 无状态类返回组件信息
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: <Widget>[getUserWidget(), getCommentWidget()],
+    print('ArticleBottomBar build');
+    return Container(
+//      color: Colors.red,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: <Widget>[
+          Expanded(
+            flex: 8,
+            child: getUserWidget(),
+          ),
+          Expanded(
+            flex: 3,
+            child: getCommentWidget(),
+          ),
+        ],
+      ),
     );
   }
 }

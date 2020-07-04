@@ -18,6 +18,7 @@ class BannerInfo extends StatelessWidget {
         Image.network(
           bannerImage,
           width: MediaQuery.of(context).size.width,
+          height: 100,
           fit: BoxFit.cover,
         )
       ],
