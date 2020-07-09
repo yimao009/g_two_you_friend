@@ -6,8 +6,8 @@ class CommentInfoStruct {
   final UserInfoStruct userInfo;
 
   /// 用户头像信息
-  final String comment;
+  final String headerURL;
 
   /// 构造函数
-  const CommentInfoStruct(this.userInfo, this.comment);
+  const CommentInfoStruct(this.userInfo, this.headerURL);
 }

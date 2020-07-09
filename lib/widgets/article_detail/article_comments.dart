@@ -40,7 +40,7 @@ class ArticleComments extends StatelessWidget {
                 style: TextStyles.commonStyle(),
               ),
               Text(
-                commentItem.comment,
+                commentItem.headerURL,
                 style: TextStyles.commonStyle(.8),
               )
             ],
