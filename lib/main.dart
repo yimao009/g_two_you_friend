@@ -3,6 +3,7 @@ import 'package:flutter_redux/flutter_redux.dart';
 import 'package:provider/provider.dart';
 import 'package:redux/redux.dart';
 import 'package:two_you_friend/model/like_num_model.dart';
+import 'package:two_you_friend/pages/entrance.dart';
 
 import 'package:two_you_friend/pages/home_new_page.dart';
 import 'package:two_you_friend/pages/name_game.dart';
@@ -12,6 +13,7 @@ import 'package:two_you_friend/pages/name_game_redux.dart';
 import 'package:two_you_friend/pages/home_page.dart';
 
 import 'package:two_you_friend/pages/test_stateful_widget.dart';
+import 'package:two_you_friend/router.dart';
 import 'package:two_you_friend/states/name_states.dart';
 /// 返回dart运行环境模式
 const bool isRelease = bool.fromEnvironment('dart.vm.product');
@@ -66,9 +68,10 @@ class MyApp extends StatelessWidget {
               title: Text('Two You'),
             ),
             body: Center(
-              child: HomeNewPage(),
+              child: Entrance(),
             ),
           ),
+          routes: Router().registerRouter(),
         ),
       ),
     );
