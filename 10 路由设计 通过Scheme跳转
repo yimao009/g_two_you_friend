@@ -1,5 +1,10 @@
-### 路由设计 通过Scheme跳转
-
+### 路由设计 通过Scheme 内部跳转
+    [scheme]://[host]/[path]?[query]
+    tyfapp://userPageIndex?userId=1001
+    
+    使用第三方库 **flutter_webview_plugin** 来打开具体的网页地址，
+    该组件一个是 url 具体的网址，一个是 appBar 包含 title 和主题信息
+    
     遇到http htpps跳转，使用flutter_webview_plugin插件， 来跳转到网页上
 
 ### 基础版本
