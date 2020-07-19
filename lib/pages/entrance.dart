@@ -26,7 +26,7 @@ class _EntranceState extends State<Entrance> {
     try {
       initialLink = await getInitialLink();
       if(initialLink != null) {
-        //  跳转到指定页面
+        //  跳转到指定页面 外部直接拉起 APP 的业务逻辑
         router.push(context, initialLink);
       }
     } on PlatformException {
@@ -35,6 +35,7 @@ class _EntranceState extends State<Entrance> {
       initialLink = 'Failed to parse the initial link as Uri.';
     }
     // Attach a listener to the links stream
+    /// 表示当前 APP 处于打开状态，监听外部拉起事件，监听变化后处理相应的跳转逻辑
     _sub = getLinksStream().listen((String link) {
       if(!mounted || link == null) return;
       //  跳转到指定页面

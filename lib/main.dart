@@ -3,7 +3,9 @@ import 'package:flutter_redux/flutter_redux.dart';
 import 'package:provider/provider.dart';
 import 'package:redux/redux.dart';
 import 'package:two_you_friend/model/like_num_model.dart';
-import 'package:two_you_friend/pages/entrance.dart';
+//import 'package:two_you_friend/pages/entrance.dart';
+//import 'package:two_you_friend/pages/entrance_bottom_bar.dart';
+import 'package:two_you_friend/pages/entrance_top_bar.dart';
 
 import 'package:two_you_friend/pages/home_new_page.dart';
 import 'package:two_you_friend/pages/name_game.dart';
@@ -60,20 +62,17 @@ class MyApp extends StatelessWidget {
         value: liekNum,
         child: MaterialApp(
           title: 'Two You', // app的title信息
+          debugShowCheckedModeBanner: false,
           theme: ThemeData(
             primarySwatch: Colors.blue, //页面的主题颜色
           ),
-          home: Scaffold(
-            appBar: AppBar(
-              title: Text('Two You'),
-            ),
-            body: Center(
-              child: Entrance(),
-            ),
-          ),
+          home: Entrance(),
           routes: Router().registerRouter(),
         ),
       ),
     );
   }
+
+
+
 }

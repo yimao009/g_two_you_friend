@@ -5,14 +5,19 @@ class UserPageIndex extends StatelessWidget {
   /// 用户id
   final String userId;
   /// 构造函数
-  UserPageIndex({Key key, this.userId}) : super(key: key);
+  const UserPageIndex({Key key, this.userId}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    Map dataInfo = JsonConfig.objectToMap(
-      ModalRoute.of(context).settings.arguments
-    );
+    String myUserId = userId;
+    if(ModalRoute.of(context).settings.arguments != null) {
+      Map dataInfo = JsonConfig.objectToMap(ModalRoute.of(context).settings.arguments);
+      myUserId = dataInfo['userId'].toString();
+    }
+//    Map dataInfo = JsonConfig.objectToMap(
+//      ModalRoute.of(context).settings.arguments
+//    );
     return Center(
-      child: Text('I am user page ${dataInfo['userId']}'),
+      child: Text('I am user page ${myUserId}'),
     );
   }
 }

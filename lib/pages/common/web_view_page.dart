@@ -12,6 +12,7 @@ class CommonWebViewPage extends StatelessWidget {
     return WebviewScaffold(
       url: url,
       appBar: AppBar(
+        title: Text('web page'),
         backgroundColor: Colors.blue,
       ),
     );
